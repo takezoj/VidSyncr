@@ -1,0 +1,14 @@
+{
+  "name": "vidsyncr",
+  "version": "1.0.0",
+  "description": "syncs videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Takezo Johnson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
