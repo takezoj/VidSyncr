@@ -1,16 +1,17 @@
-var express = require('express')
-var app  = express();
-//set port
-var port = process.env.PORT || 5000
+var express = require('express'); 
+var socket = require('socket.io')
 
+//app setup
+var app = express();
+var server = app.listen(5000,function(){
+    console.log('listening');
+});
+
+//static files
 app.use(express.static(__dirname + '/public'));
 
-//routes
-app.get("/", function(req, res){
-    res.render("index");
-})
-
-app.listen(port, function(){
-    console.log("running");
-})
-
+//socket stuff
+var io = socket(server);
+io.on('connection', function(socket){
+    console.log('user connected');
+});

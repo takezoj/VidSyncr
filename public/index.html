@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<title>Video Syncr</title>
-
-<body>
-
-    <header>
-        <h1>Cross Computer Video Syncr</h1>
-    </header>
-
-    <div class="container">
-
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:5000');
+        </script>
+    </head>
+    <title>Video Syncr</title>
+    <body>
+        <header>
+            <h1>Cross Computer Video Syncr</h1>
+        </header>
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
         <div id="player"></div>
-
+        
         <script>
             // 2. This code loads the IFrame Player API code asynchronously.
             var tag = document.createElement('script');
@@ -38,7 +35,7 @@
                     events: {
                         'onReady': onPlayerReady,
                         'onStateChange': onPlayerStateChange
-                    }
+                    },
                 });
             }
 
@@ -61,11 +58,5 @@
                 player.stopVideo();
             }
         </script>
-
-    </div>
-
-
-</body>
-
-
+    </body>
 </html>
